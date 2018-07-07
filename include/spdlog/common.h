@@ -78,21 +78,22 @@ enum level_enum
     trace = 0,
     debug = 1,
     info = 2,
-    warn = 3,
-    err = 4,
-    critical = 5,
-    off = 6
+    notice = 3,
+    warn = 4,
+    err = 5,
+    critical = 6,
+    off = 7
 };
 
 #if !defined(SPDLOG_LEVEL_NAMES)
 #define SPDLOG_LEVEL_NAMES                                                                                                                 \
     {                                                                                                                                      \
-        "trace", "debug", "info", "warning", "error", "critical", "off"                                                                    \
+        "trace", "debug", "info", "notice", "warning", "error", "critical", "off"                                                                    \
     }
 #endif
 static const char *level_names[] SPDLOG_LEVEL_NAMES;
 
-static const char *short_level_names[]{"T", "D", "I", "W", "E", "C", "O"};
+static const char *short_level_names[]{"T", "D", "I", "N", "W", "E", "C", "O"};
 
 inline const char *to_str(spdlog::level::level_enum l)
 {
@@ -109,10 +110,11 @@ inline spdlog::level::level_enum from_str(const std::string &name)
         {{level_names[0], level::trace},                               // trace
             {level_names[1], level::debug},                            // debug
             {level_names[2], level::info},                             // info
-            {level_names[3], level::warn},                             // warn
-            {level_names[4], level::err},                              // err
-            {level_names[5], level::critical},                         // critical
-            {level_names[6], level::off}};                             // off
+            {level_names[3], level::notice},                           // notice
+            {level_names[4], level::warn},                             // warn
+            {level_names[5], level::err},                              // err
+            {level_names[6], level::critical},                         // critical
+            {level_names[7], level::off}};                             // off
 
     auto lvl_it = name_to_level.find(name);
     return lvl_it != name_to_level.end() ? lvl_it->second : level::off;

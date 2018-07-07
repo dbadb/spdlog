@@ -51,6 +51,9 @@ public:
     void info(const char *fmt, const Arg1 &, const Args &... args);
 
     template<typename Arg1, typename... Args>
+    void notice(const char *fmt, const Arg1 &, const Args &... args);
+
+    template<typename Arg1, typename... Args>
     void warn(const char *fmt, const Arg1 &, const Args &... args);
 
     template<typename Arg1, typename... Args>
@@ -76,6 +79,9 @@ public:
     void info(const wchar_t *fmt, const Args &... args);
 
     template<typename... Args>
+    void notice(const wchar_t *fmt, const Args &... args);
+
+    template<typename... Args>
     void warn(const wchar_t *fmt, const Args &... args);
 
     template<typename... Args>
@@ -96,6 +102,9 @@ public:
 
     template<typename T>
     void info(const T &msg);
+
+    template<typename T>
+    void notice(const T &msg);
 
     template<typename T>
     void warn(const T &msg);

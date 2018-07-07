@@ -70,6 +70,8 @@ private:
             return ANDROID_LOG_DEBUG;
         case spdlog::level::info:
             return ANDROID_LOG_INFO;
+        case spdlog::level::notice:
+            return ANDROID_LOG_INFO; // no NOTICE available
         case spdlog::level::warn:
             return ANDROID_LOG_WARN;
         case spdlog::level::err:

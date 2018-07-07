@@ -421,7 +421,11 @@ inline bool in_terminal(FILE *file)
 {
 
 #ifdef _WIN32
-    return _isatty(_fileno(file)) != 0;
+    bool isTerm = (_isatty(_fileno(file)) != 0);
+    if(getenv("TERM"))
+        return true;
+    else
+        return isTerm;
 #else
     return isatty(fileno(file)) != 0;
 #endif

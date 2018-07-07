@@ -28,12 +28,13 @@ public:
         : target_file_(file)
     {
         should_do_colors_ = details::os::in_terminal(file) && details::os::is_color_terminal();
-        colors_[level::trace] = white;
-        colors_[level::debug] = cyan;
-        colors_[level::info] = green;
+        colors_[level::trace] = cyan;
+        colors_[level::debug] = blue;
+        colors_[level::info] = blue + bold;
+        colors_[level::notice] = green;
         colors_[level::warn] = yellow + bold;
         colors_[level::err] = red + bold;
-        colors_[level::critical] = bold + on_red;
+        colors_[level::critical] = red + bold;
         colors_[level::off] = reset;
     }
 

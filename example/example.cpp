@@ -26,9 +26,11 @@ int main(int, char *[])
 {
     try
     {
+        printf("Begin printing to stdout\n");
+
         // Console logger with color
         auto console = spd::stdout_color_mt("console");
-        console->info("Welcome to spdlog!");
+        console->notice("Welcome to spdlog!");
         console->error("Some error message with arg{}..", 1);
 
         // Formatting examples
@@ -87,7 +89,7 @@ int main(int, char *[])
         user_defined_example();
 
         // Change default log error handler
-        err_handler_example();
+        // err_handler_example();
 
         // Apply a function on all registered loggers
         spd::apply_all([&](std::shared_ptr<spdlog::logger> l) { l->info("End of example."); });

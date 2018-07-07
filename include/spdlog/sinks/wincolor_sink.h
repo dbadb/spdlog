@@ -33,12 +33,13 @@ public:
     wincolor_sink(HANDLE std_handle)
         : out_handle_(std_handle)
     {
-        colors_[level::trace] = WHITE;
-        colors_[level::debug] = CYAN;
-        colors_[level::info] = GREEN;
+        colors_[level::trace] = CYAN;
+        colors_[level::debug] = BLUE;
+        colors_[level::info] = BLUE|BOLD;
+        colors_[level::notice] = GREEN;
         colors_[level::warn] = YELLOW | BOLD;
-        colors_[level::err] = RED | BOLD;                         // red bold
-        colors_[level::critical] = BACKGROUND_RED | WHITE | BOLD; // white bold on red background
+        colors_[level::err] = RED | BOLD;
+        colors_[level::critical] = RED | BOLD;  
         colors_[level::off] = 0;
     }
 

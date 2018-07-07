@@ -122,6 +122,12 @@ inline void spdlog::logger::info(const char *fmt, const Arg1 &arg1, const Args &
 }
 
 template<typename Arg1, typename... Args>
+inline void spdlog::logger::notice(const char *fmt, const Arg1 &arg1, const Args &... args)
+{
+    log(level::notice, fmt, arg1, args...);
+}
+
+template<typename Arg1, typename... Args>
 inline void spdlog::logger::warn(const char *fmt, const Arg1 &arg1, const Args &... args)
 {
     log(level::warn, fmt, arg1, args...);
@@ -155,6 +161,12 @@ template<typename T>
 inline void spdlog::logger::info(const T &msg)
 {
     log(level::info, msg);
+}
+
+template<typename T>
+inline void spdlog::logger::notice(const T &msg)
+{
+    log(level::notice, msg);
 }
 
 template<typename T>
@@ -212,6 +224,12 @@ template<typename... Args>
 inline void spdlog::logger::info(const wchar_t *fmt, const Args &... args)
 {
     log(level::info, fmt, args...);
+}
+
+template<typename... Args>
+inline void spdlog::logger::notice(const wchar_t *fmt, const Args &... args)
+{
+    log(level::notice, fmt, args...);
 }
 
 template<typename... Args>

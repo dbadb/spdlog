@@ -16,7 +16,7 @@
 #include "../sinks/syslog_sink.h"
 #endif
 
-#if defined _WIN32 && !defined(__cplusplus_winrt)
+#if defined _WIN32 && !defined(__cplusplus_winrt) && !defined(SPDLOG_PREFER_ANSITERM)
 #include "../sinks/wincolor_sink.h"
 #else
 #include "../sinks/ansicolor_sink.h"
@@ -109,7 +109,7 @@ inline std::shared_ptr<spdlog::logger> spdlog::stderr_logger_st(const std::strin
 //
 // stdout/stderr color loggers
 //
-#if defined _WIN32 && !defined(__cplusplus_winrt)
+#if defined _WIN32 && !defined(__cplusplus_winrt) && !defined(SPDLOG_PREFER_ANSITERM)
 
 inline std::shared_ptr<spdlog::logger> spdlog::stdout_color_mt(const std::string &logger_name)
 {
